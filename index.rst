@@ -14,6 +14,7 @@ UniLWP.Droid Documentation
    :caption: General
 
    general/introduction
+   general/structure
 
 .. toctree::
    :caption: Technical Architecture

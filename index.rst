@@ -3,20 +3,32 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to UniLWP.Droid's documentation!
-========================================
+UniLWP.Droid
+============
 
 .. toctree::
+   :caption: General
+
+   general/introduction
+   general/feature
+
+.. toctree::
+   :caption: Technical Architecture
+
+   general/introduction
+
+.. toctree::
+   :caption: Miscellaneous
    :maxdepth: 2
-   :caption: Contents:
+   :hidden:
 
-   general/about
+   misc/changelog
 
 
 
-Indices and tables
-==================
+.. Indices and tables
+.. ==================
 
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+.. * :ref:`genindex`
+.. * :ref:`modindex`
+.. * :ref:`search`

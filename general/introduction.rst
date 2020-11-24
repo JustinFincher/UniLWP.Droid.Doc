@@ -9,7 +9,7 @@ UniLWP.Droid is built with customization in mind. It works with Unity's default 
 Requirements
 ------------
 
-- Unity 2019.3 and up (certain features require Unity 2020 or more)
+- Unity 2019.3 and up (certain features require Unity 2020 or more recent releases)
 - Android 7.0 and up (API 24)
 
 Features
@@ -33,13 +33,39 @@ Features
 
 - Customization friendly design
 
-	- Re-building project would still maintain your external modifications made using Android Studio
+	- Re-building project would still maintain your external modifications made using Android Studio, including java files, xml resources, and gradle dependencies
 
 
 Version Comparsion
 ------------------
 
-Free (GitHub) vs Paid (Asset Store)
+UniLWP.Droid has two variants. 
+
+- One is `UniLWP.Droid.Free <https://github.com/JustinFincher/UniLWP.Droid.Package.Free>`_, a free plugin in UPM format. 
+
+- Another is `UniLWP.Droid.Store <http://u3d.as/1QVw>`_, an Asset-Store-listed plugin with more features.
+
++----------------------------+------------+-------------+
+| UniLWP.Droid               | Free       |       Store |
++============================+============+=============+
+| Unity as Live Wallpaper    | ✅         | ✅          |
++----------------------------+------------+-------------+
+| Default Build Pipeline     | ✅         | ✅          |
+| (One-Click Apk)            |            |             |
++----------------------------+------------+-------------+
+| Callbacks (Lock State,     | ❌         | ✅          |
+| Scroll Offset, etc)        |            |             |
++----------------------------+------------+-------------+
+| Callbacks (Lock State,     | ❌         | ✅          |
+| Scroll Offset, etc)        |            |             |
++----------------------------+------------+-------------+
+| body row 3                 | Cells may  | - Table cell|
++----------------------------+ span rows. | - contain   |
+| body row 4                 |            | - body eleme|
++----------------------------+------------+----------+--+
+| body row 5                 | Cells may also be        |
+|                            | empty: ``-->``           |
++----------------------------+--------------------------+
 
 Demo
 -------------------

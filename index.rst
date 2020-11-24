@@ -6,8 +6,8 @@
 UniLWP.Droid Documentation
 ==========================
 
-:Version: 0.0.2 (preview.1)
-:Date: Nov 24, 2020
+:Version: |release|
+:Date: |today|
 :Contact: justzht+unilwp@gmail.com
 
 .. toctree::

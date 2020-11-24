@@ -15,7 +15,7 @@ UniLWP.Droid
 .. toctree::
    :caption: Technical Architecture
 
-   general/introduction
+   technical/unity
 
 .. toctree::
    :caption: Miscellaneous

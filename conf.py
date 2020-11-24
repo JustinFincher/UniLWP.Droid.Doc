@@ -96,6 +96,9 @@ html_theme_options = {
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
+html_css_files = [
+    'css/custom.css',
+]
 
 # Custom sidebar templates, must be a dictionary that maps document names
 # to template names.
@@ -189,3 +192,11 @@ epub_exclude_files = ['search.html']
 
 # Example configuration for intersphinx: refer to the Python standard library.
 intersphinx_mapping = {'https://docs.python.org/': None}
+
+html_context = {
+    "display_github": True, # Integrate GitHub
+    "github_user": "JustinFincher", # Username
+    "github_repo": "UniLWP.Droid.Doc", # Repo name
+    "github_version": "dev", # Version
+    "conf_py_path": "/", # Path in the checkout to the docs root
+}

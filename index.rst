@@ -18,13 +18,20 @@ UniLWP.Droid Documentation
 .. toctree::
    :caption: Technical Architecture
 
-   technical/unity
+   technical/android_library
+   technical/customize
+   technical/build_pipeline
 
 
 .. toctree::
    :caption: Tutorials
 
    tutorial/preparation
+   tutorial/import_setup
+   tutorial/callbacks
+   tutorial/export
+   tutorial/ads
+   tutorial/preference
 
 .. toctree::
    :caption: Miscellaneous

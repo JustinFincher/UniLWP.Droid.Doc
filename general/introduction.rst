@@ -10,7 +10,8 @@ Requirements
 ------------
 
 - Unity 2019.3 and up (certain features require Unity 2020 or more recent releases)
-- Android 7.0 and up (API 24)
+- Android 7.0 and up (API 24+)
+- Android programming experience needed (only if advanced build mode is in use)
 
 Features
 --------
@@ -56,16 +57,15 @@ UniLWP.Droid has two variants.
 | Callbacks (Lock State,     | ❌         | ✅          |
 | Scroll Offset, etc)        |            |             |
 +----------------------------+------------+-------------+
-| Callbacks (Lock State,     | ❌         | ✅          |
-| Scroll Offset, etc)        |            |             |
+| Touch Events               | ❌         | ✅          |
 +----------------------------+------------+-------------+
-| body row 3                 | Cells may  | - Table cell|
-+----------------------------+ span rows. | - contain   |
-| body row 4                 |            | - body eleme|
-+----------------------------+------------+----------+--+
-| body row 5                 | Cells may also be        |
-|                            | empty: ``-->``           |
-+----------------------------+--------------------------+
+| Modular Customization      | ✅ (You    | ✅ (Editor  |
+|                            | need to    | tools       |
+|                            | do it      | provided)   |
+|                            | yourself)  |             |
++----------------------------+------------+-------------+
+| Advanced Build Workflow    | ❌         | ✅          |
++----------------------------+------------+-------------+
 
 Demo
 -------------------

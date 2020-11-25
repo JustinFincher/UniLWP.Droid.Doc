@@ -44,6 +44,19 @@ Import On 2019.3 +
 Setup
 -----
 
+- After import, find UniLWP settings in ``Project Settings``. 
+
+	- On macOS, the ``Project Settings`` panel can be toggled by menu path ``Edit/Project Settings...``
+	- On Windows,
+
+- Go to ``Build Settings`` and adjust certain items:
+
+  - In ``Player/Resolution and Presentation``, make sure that both ``Optimized Frame Pacing`` and ``Render Over Native UI`` are unchecked.
+  - In ``Player/Other Settings``, make sure that both ``Mute Other Audio Sources`` and ``Filter Touches When Obscured`` are unchecked, the ``Minimal API Level`` is ``Android 7.0 Nougat (API Level 24)``. You might also want to change ``Graphics APIs`` to ``OpenGLES3`` only, but that is optional.
+
+- Go to ``Audio Settings`` and adjust certain items:
+
+  - Check ``Disable Unity Audio`` if you don't want your wallpaper to play sounds.
 
 
 

@@ -24,6 +24,16 @@ Store Version
 
     Choose the asset at the left sidebar, then press ``download`` and then ``import`` buttons at the bottom-right.
 
+    .. rubric:: Ideal project settings
+
+    .. figure:: /_static/img/project_settings_player_resolution.jpg
+
+    ``Project/Player/Resolution and Presentation``
+
+    .. figure:: /_static/img/project_settings_player_other.jpg
+
+    ``Project/Player/Other Settings``
+
 
 The paid version, UniLWP.Droid.Store, is distributed on `Unity Asset Store <http://u3d.as/1QVw>`_ as a ``.unitypackage`` file.
 
@@ -44,20 +54,18 @@ Import On 2019.3 +
 Setup
 -----
 
-- After import, find UniLWP settings in ``Project Settings``. 
+Toggle ``Project Settings`` panel via menu path ``Edit/Project Settings...``
 
-	- On macOS, the ``Project Settings`` panel can be toggled by menu path ``Edit/Project Settings...``
-	- On Windows,
-
-- Go to ``Build Settings`` and adjust certain items:
+- Go to ``Project/Player`` and adjust certain items:
 
   - In ``Player/Resolution and Presentation``, make sure that both ``Optimized Frame Pacing`` and ``Render Over Native UI`` are unchecked.
   - In ``Player/Other Settings``, make sure that both ``Mute Other Audio Sources`` and ``Filter Touches When Obscured`` are unchecked, the ``Minimal API Level`` is ``Android 7.0 Nougat (API Level 24)``. You might also want to change ``Graphics APIs`` to ``OpenGLES3`` only, but that is optional.
 
-- Go to ``Audio Settings`` and adjust certain items:
+- Go to ``Project/Audio`` and adjust certain items:
 
   - Check ``Disable Unity Audio`` if you don't want your wallpaper to play sounds.
 
+- Go to ``UniLWP`` and change settings as you like. Please refer to :doc:`../../technical/customize` for options.
 
 
 Build

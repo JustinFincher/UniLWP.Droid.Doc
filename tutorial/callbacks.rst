@@ -38,24 +38,24 @@ Callback Types And Registration
 Insets
 ^^^^^^
 
-Insets refer to `android.view.WindowInsets <https://developer.android.com/reference/android/view/WindowInsets>`_, a set of value describing the padding of android window where you should avoid drawing to. This is especially useful when you are trying to run Unity UI on Android devices with notches.
+	Insets refer to `android.view.WindowInsets <https://developer.android.com/reference/android/view/WindowInsets>`_, a set of value describing the padding of android window where you should avoid drawing to. This is especially useful when you are trying to run Unity UI on Android devices with notches.
 
-.. rubric:: Called when
+	.. rubric:: Called when
 
-When the app has entered an Actvitiy or a Wallpaper Service.
+	When the app has entered an Actvitiy or a Wallpaper Service.
 
-.. rubric:: Value
+	.. rubric:: Value
 
-Pixels
+	Pixels
 
-.. code-block:: csharp
+	.. code-block:: csharp
     		:caption: Declaration
 
      		public delegate void OnInsetsUpdatedDelegate(int left, int top, int right, int bottom);
         	public OnInsetsUpdatedDelegate insetsUpdated;
         	public static Vector4 insets;
 
-.. code-block:: csharp
+	.. code-block:: csharp
     		:caption: Example
 
      		LiveWallpaperManagerDroid.Instance.insetsUpdated += (left, top, right, bottom) =>

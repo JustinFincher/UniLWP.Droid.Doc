@@ -13,15 +13,15 @@ Free Version
 
    .. figure:: /_static/img/package_manager_plus_sign.jpg
 
-    Package Manager is located under menu ``Window``. The menu bar would be at the top of the screen in macOS while at the top of the Unity window in Windows.
+    If you cannot see the dropdown list, drag the title of package manager panel to un-dock the window, and then try again.
 
     .. rubric:: View more info about the package
 
     .. figure:: /_static/img/package_manager_load_unilwp.jpg
 
-    If you 
+    Newly added files are groupped and shown within the ``Packages`` section of the project panel
 
-The free version, UniLWP.Droid.Free, is hosted on GitHub as an UPM package. 
+The free version, UniLWP.Droid.Free, is hosted on `GitHub <https://github.com/JustinFincher/UniLWP.Droid.Package.Free>`_ as an UPM package. 
 
 - To import, first open package manager via menu ``Window/Package Manager``. 
 

@@ -21,6 +21,9 @@ Free Version
 
     Newly added files are groupped and shown within the ``Packages`` section of the project panel
 
+Import
+------
+
 The free version, UniLWP.Droid.Free, is hosted on `GitHub <https://github.com/JustinFincher/UniLWP.Droid.Package.Free>`_ as an UPM package. 
 
 - To import, first open package manager via menu ``Window/Package Manager``. 
@@ -47,3 +50,14 @@ Or, if you are familiar with ``package.json``, you are free to do paste this lin
    {
     	"com.justzht.unilwp.droid.free": "https://github.com/JustinFincher/UniLWP.Droid.Package.Free.git" // this line
    }
+
+Setup
+-----
+
+Currently there is no setup needed for UniLWP.Droid.Free. Just build an apk you will find a live wallpaper entry in wallpaper chooser.
+
+
+Build
+-----
+
+Please refer to :doc:`../export`.

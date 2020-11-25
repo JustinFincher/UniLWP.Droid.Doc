@@ -26,6 +26,7 @@ UniLWP.Droid Documentation
 
 .. toctree::
    :caption: Tutorials
+   :maxdepth: 2
 
    tutorial/preparation
    tutorial/import_setup

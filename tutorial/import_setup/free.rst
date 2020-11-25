@@ -78,4 +78,4 @@ Toggle ``Project Settings`` panel via menu path ``Edit/Project Settings...``
 Build
 -----
 
-Please refer to :doc:`../export`.
+It is the same as the default Unity build pipeline, that you only need to trigger a build through the default ``File/Build And Run`` menu path. The plugin will be packed into the final apk file and be initialized as soon as possible to handle Unity lifecycles.

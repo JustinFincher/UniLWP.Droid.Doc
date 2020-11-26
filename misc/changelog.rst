@@ -19,6 +19,7 @@ Added
 Fixes
 
 - Menu items within ``FinGameWorks/UniLWP/Droid`` are re-arranged into groups.
+- Fixed a crash when Unity UI input field is activated.
 
 Removed
 

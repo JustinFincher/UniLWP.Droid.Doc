@@ -46,7 +46,7 @@ Insets
 
 	.. rubric:: Value
 
-	Pixels
+	Padding values in pixel format. Please use in conjuntion with `Screen.width <https://docs.unity3d.com/ScriptReference/Screen-width.html>`_ to calucate the percentage if you are in a scaled UI space.
 
 	.. code-block:: csharp
     		:caption: Declaration
@@ -64,7 +64,35 @@ Insets
 
 Offsets
 ^^^^^^^
-	Offsets refer to the
+	Offsets refer to the distance the users have scrolled on their Android home (launcher). It is derived from the `WallpaperService.Engine#onOffsetsChanged <https://developer.android.com/reference/android/service/wallpaper/WallpaperService.Engine#onOffsetsChanged(float,%20float,%20float,%20float,%20int,%20int)>`_ method with slight modifications.
+
+	.. rubric:: Called when
+
+	.. rubric:: Value
+
+	- float xOffset: Wallpaper horizontal scoll progress in a 0-1 scale.
+	- float yOffset: Wallpaper vertical scoll progress in 0-1 scale. Since there isn't much support of vertical launcher pages in Android apps, this value is mostly reportede as 0.
+	- float xOffsetStep: The progress a horizontal full-page scroll would take in a 0-1 scale. Consequently, total horizontal page count can be calucated by 1 divided by this value ``(int)(1.0/xOffsetStep)``.
+	- float yOffsetStep: The progress a vertical full-page scroll would take in a 0-1 scale.
+	- bool simulated: Since certain stock launchers and ROMs do not follow the described behavior in Android documentation (specifically, Samsung's OneUI), the value UniLWP acquired from those devices are always 0 or 0.5, resulting in no way to know the total launcher pages and progress. To work around this limitation, UniLWP is designed to deploy a gesture recoginizer to manually calucate the estimated progress, and simulated field would be true in this case.
+
+	.. code-block:: csharp
+		:caption: Declaration
+
+     		public delegate void OnWallpaperOffsetsUpdatedDelegate(float xOffset, float yOffset, float xOffsetStep, float yOffsetStep, bool simulated);
+        	public OnWallpaperOffsetsUpdatedDelegate wallpaperOffsetsUpdated;
+        	public static Vector4 offset;
+        	public static bool offsetSimulated;
+
+	.. code-block:: csharp
+    		:caption: Example
+
+     		LiveWallpaperManagerDroid.Instance.wallpaperOffsetsUpdated += (xOffset, yOffset, xStep, yStep, simulated) =>
+        	{
+        	    int xPageCount = xStep == 0 ? 0 : (int) Math.Round(1.0 / xStep);
+        	    float xPageProgress = xPageCount * xOffset;
+        	};
+
 
 Dark Mode
 ^^^^^^^^^

@@ -68,6 +68,8 @@ Offsets
 
 	.. rubric:: Called when
 
+	When the user is swiping across pages on Android launchers.
+
 	.. rubric:: Value
 
 	- float xOffset: Wallpaper horizontal scoll progress in a 0-1 scale.
@@ -77,7 +79,7 @@ Offsets
 	- bool simulated: Since certain stock launchers and ROMs do not follow the described behavior in Android documentation (specifically, Samsung's OneUI), the value UniLWP acquired from those devices are always 0 or 0.5, resulting in no way to know the total launcher pages and progress. To work around this limitation, UniLWP is designed to deploy a gesture recoginizer to manually calucate the estimated progress, and simulated field would be true in this case.
 
 	.. code-block:: csharp
-		:caption: Declaration
+    		:caption: Declaration
 
      		public delegate void OnWallpaperOffsetsUpdatedDelegate(float xOffset, float yOffset, float xOffsetStep, float yOffsetStep, bool simulated);
         	public OnWallpaperOffsetsUpdatedDelegate wallpaperOffsetsUpdated;
@@ -98,6 +100,48 @@ Dark Mode
 ^^^^^^^^^
 	Dark mode 
 
+Screen Display Status
+^^^^^^^^^^^^^^^^^^^^^
+	Screen display status refers to the lock state of a phone. You can utlize this value to perform certian animations when the user lights up or unlocks the phone. 
+	
+	.. Note:: For Android 9.0, this callback also include an always on display (AOD) value if you put ``androidprv:supportAmbientMode="true"`` into ``wallpaper.xml``. However, since Android 10, this attribute is protected by a permission ``android.permission.AMBIENT_WALLPAPER``, which is a system only permission that you normally cannot request except you are compling the ROM youself (i.e. you are also one of Android OEM companies or custom ROM makers)
+
+	.. rubric:: Called when
+
+	When the user has turn on the screen in lock state / unlock the phone / lock the phone / leave the phone into always on display mode
+
+	.. rubric:: Value	
+
+	Enums.ScreenStatus, where:
+
+	- LockedAndOff = 0
+	- LockedAndAOD = 1
+	- LockedAndOn = 2
+	- Unlocked = 3
+
+	.. code-block:: csharp
+    		:caption: Declaration
+
+     		public delegate void OnScreenDisplayStatusUpdatedDelegate(Enums.ScreenStatus screenStatus);
+        	public OnScreenDisplayStatusUpdatedDelegate screenDisplayStatusUpdated;
+        	public static Enums.ScreenStatus screenStatus;
+
+	.. code-block:: csharp
+    		:caption: Example
+
+     		LiveWallpaperManagerDroid.Instance.screenDisplayStatusUpdated += status =>
+     		{
+     		};
+
+In Activity
+^^^^^^^^^^^
+	This callback reflects if the Unity instance is currently displaying in an activity.
+	
+	.. Note:: Notice that, this callback only works in the scope of UniLWP's own provided activities. If you are writing a customized activity and also want the UniLWP to receive this event in the C# side, please register your activity (refer to the ``Trigger Callbacks In Your Own Implementation`` section)
+
+In Service
+^^^^^^^^^^
+	This callback reflects if the Unity instance is currently displaying in wallpaper mode.
 
 Trigger Callbacks In Your Own Implementation
 --------------------------------------------

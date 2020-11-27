@@ -21,10 +21,14 @@ UniLWP is designed to initialize even before the Unity player itself for a total
 
 In the ``onCreate()`` method of LiveWallpaperInitProvider, UniLWP calls ``LiveWallpaperManager.Init()`` with the acquired context, which would later be used to create the Unity player.
 
-This way, UniLWP is able to extend its lifespan beyond the Unity player and consequently maintain the control to it no matter the app is launched by system in activity mode or wallpaper mode. The drawback though, is that the Unity player 
+This way, UniLWP is able to extend its lifespan beyond the Unity player and consequently maintain the control to it no matter the app is launched by system in activity mode or wallpaper mode. The drawback though, is that the Unity player, by default, would be initialized at the beginning, which would let the app took a performance and memory hit. However, this behavior can be easily tweaked to fit your own need, with the possibility to launch Unity instance when you needed (and destory it when you don't).
 
 Display Target
 --------------
+
+UniLWP uses a single Unity instance for multiple render targets, including the surface view in activites, wallpaper engine in wallpaper services, and even surface view in screen saver (day dream) services. This shared instance ensures that the contents on those render targets are all the same, the only difference is the rendering resolution. However, UniLWP is requried to switch render targets to only the currently active one, or the user would only see a static image.
+
+
 
 Callbacks
 ---------

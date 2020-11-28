@@ -2,6 +2,25 @@
 Changelog
 *********
 
+0.0.2 (preview.2)
+=================
+
+:Date: Nov 29, 2020
+
+:Comment: This is a preview release of 0.0.2, with many break changes both in C# and Java modules. Please delete UniLWP folder before upgrading to 0.0.2.
+
+Added
+
+- Added mipmap settings panel in the ``Project Settings`` editor window.
+
+Fixes
+
+N/A
+
+Removed
+
+N/A
+
 0.0.2 (preview.1)
 =================
 

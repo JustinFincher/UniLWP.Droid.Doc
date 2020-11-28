@@ -14,6 +14,7 @@ UniLWP.Droid Documentation
    :caption: General
 
    general/introduction
+   general/structure
 
 .. toctree::
    :caption: Technical Architecture
@@ -25,6 +26,7 @@ UniLWP.Droid Documentation
 
 .. toctree::
    :caption: Tutorials
+   :maxdepth: 2
 
    tutorial/preparation
    tutorial/import_setup
@@ -32,6 +34,7 @@ UniLWP.Droid Documentation
    tutorial/export
    tutorial/ads
    tutorial/preference
+   tutorial/simulator
 
 .. toctree::
    :caption: Miscellaneous

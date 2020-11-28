@@ -34,6 +34,7 @@ UniLWP.Droid Documentation
    tutorial/export
    tutorial/ads
    tutorial/preference
+   tutorial/simulator
 
 .. toctree::
    :caption: Miscellaneous

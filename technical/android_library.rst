@@ -1,5 +1,10 @@
+Android Plugin
+==============
+
+The scope of this page is within ``Assets/FinGameWorks/UniLWP/Droid/Plugins`` and the source files that contributed to the plugins in that folder.
+
 Android Library
-===============
+---------------
 
 The Android Library here refers to the ``UniLWP-(debug|release).aar`` file located in ``Assets/FinGameWorks/UniLWP/Droid/Plugins`` folder and the source code to compile it. 
 
@@ -7,13 +12,8 @@ The Android Library is responsible for major work of converting an ordinary Unit
 
 .. Note:: The source code project as a Android Library gradle project, is included as a zip file (``JavaSource.zip``), which you can import using Android Studio to compile your own aar file with own logic.
 
-Contents
---------
-
-
-
 Initialization
---------------
+^^^^^^^^^^^^^^
 
 UniLWP is designed to initialize even before the Unity player itself for a total control of the player instance. To achieve this goal, it deploys an early-init technique called `ContentProvider <https://developer.android.com/reference/android/content/ContentProvider>`_, which is mainly done in the ``LiveWallpaperInitProvider.java`` file.
 
@@ -39,7 +39,7 @@ This way, UniLWP is able to extend its lifespan beyond the Unity player and cons
     }
 
 Display Target
---------------
+^^^^^^^^^^^^^^
 
 UniLWP uses a single Unity instance for multiple render targets, including the surface view in activities, wallpaper engine in wallpaper services, and even surface view in screen saver (day dream) services. This shared instance ensures that the contents on those render targets are all the same, the only difference is the rendering resolution. However, UniLWP is required to switch render targets to only the currently active one, or the user would only see a static image.
 
@@ -67,7 +67,7 @@ However, we are not gonna use this multiple display setup. Instead, UniLWP only 
 If you are using a customized activity or service, chances are you want your customized surface to be registered into this switch logic. Please refer to :doc:`customize` for more information.
 
 Callbacks
----------
+^^^^^^^^^
 
 One of UniLWP's unique features is the ability to monitor native events to develop data-driven wallpapers that adapts to dark mode, lock screen, and other device environment changes.
 
@@ -80,7 +80,7 @@ Callbacks are implemented via the ``LiveWallpaperListener`` Java interface and `
    :emphasize-lines: 2,3
 
    public enum LiveWallpaperListenerManager {
-      // called in C#
+      // called in C# via AndroidJavaObject
       protected void setEventListener(LiveWallpaperListener eventListener) {
          this.eventListener = eventListener;
          // report initial status to Unity
@@ -89,14 +89,34 @@ Callbacks are implemented via the ``LiveWallpaperListener`` Java interface and `
       private LiveWallpaperListener eventListener;
    }
 
+When the Unity instance is initialized in Java by ``LiveWallpaperManager``, the C# part of UniLWP, ``LiveWallpaperManagerDroid`` will be awaken along with the Unity instance, and before any scene loading, it will call ``setEventListener(LiveWallpaperListener eventListener)`` with a C# `AndroidJavaProxy <https://docs.unity3d.com/ScriptReference/AndroidJavaProxy.html>`_. Any Android native events would be synced through this interface and dispatched to any listener attached.
+
+It is also suggested that you attach listeners in Monobehavior's ``Start()`` or ``Awake()`` function to only register once after the internal setup of ``LiveWallpaperManagerDroid``.
+
 Behaviour & Flags
------------------
+^^^^^^^^^^^^^^^^^
+
+UniLWP comes with a handful options to tweak its native behavior. Certain times you want UniLWP to log in detail, other times you don't. The same applies to Unity initialization, initial variable value, setting button event, etc. All those fields are organized into a single Java class ``LiveWallpaperConfig``, and the values would be retrieved from ``meta-data`` tags in the merged final ``AndroidManifest.xml``.
+
+.. Tip:: For how to set behaviour flags in your C# code, please refer to :doc:`../tutorial/callbacks`
 
 Android Module
-==============
+--------------
 
-Contents
---------
+The Android Module here refers to the ``unilwp.customize.androidlib`` folder located in ``Assets/FinGameWorks/UniLWP/Droid/Plugins`` folder. It is essentially an Android Library project, with the extension ``androidlib`` to identify itself as a plugin to Unity.
+
+.. Note:: The ``androidlib`` extension is an Unity 2020.x feature addition that, if applied, can make your plugin folder work anywhere. In other words, plugins folders with or without this extension will work if placed in the ``Assets/Plugins/Android`` folder, however, on 2020+ and with this extension, the plugin folder can be moved to anywhere within ``Assets``.
+
+In this sense, the Android Module will still largely work on 2019.3 if you move it into the global folder ``Assets/Plugins/Android``, but that is pretty in contrast with the 'non-invasive' design philosophy of UniLWP. If you really need it to work on 2019.3, please also modify the plugin path field in setting scripts so the editor UI will point to the correct file, but it won't receive offical support.
 
 Resources
----------
+^^^^^^^^^
+
+As described before, this folder is in a standard Android Library project layout. Aside from ``AndroidManifest.xml``, values are mostly stored in ``res/xml`` and ``res/values`` folder. In the final compile stage, these values will be merged into the app and replace any previous or default value.
+
+Goal
+^^^^
+
+Why adding a new folder to the plugin folder when UniLWP already has an AAR file in it? Obviously AAR file cannot be modified easily after it is compiled. While the behavior can be redirected through ``meta-data`` entries mentioned earlier, all those resources files (names, images) are static-referenced.
+
+An Android Library project that exposes its content to the outside is therefore more suitable to store these values. UniLWP since 0.0.2 comes with additional editor scripts to manage values within the editor so you don't have to use a xml editor or Android Studio.

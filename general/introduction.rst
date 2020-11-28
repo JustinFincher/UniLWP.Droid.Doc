@@ -37,7 +37,7 @@ Features
 	- Re-building project would still maintain your external modifications made using Android Studio, including java files, xml resources, and gradle dependencies
 
 
-Version Comparsion
+Version Comparison
 ------------------
 
 UniLWP.Droid has two variants. 
@@ -68,5 +68,10 @@ UniLWP.Droid has two variants.
 +----------------------------+------------+-------------+
 
 Demo
--------------------
+----
+
+Legacy Documentation
+--------------------
+
+For an earlier version of UniLWP.Droid documentation, please refer to `Google Doc <https://docs.google.com/document/d/10b5zDYjr2MDDKUhuUeq192YYoOb5YHcEqfLbr_5m9iM/>`_.
 

@@ -31,6 +31,7 @@ UniLWP.Droid Documentation
    tutorial/preparation
    tutorial/import_setup
    tutorial/callbacks
+   tutorial/behavior
    tutorial/export
    tutorial/ads
    tutorial/preference

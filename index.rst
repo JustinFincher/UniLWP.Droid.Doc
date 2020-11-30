@@ -42,6 +42,7 @@ UniLWP.Droid Documentation
    :maxdepth: 2
    :hidden:
 
+   misc/migration
    misc/changelog
 
 

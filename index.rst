@@ -39,8 +39,7 @@ UniLWP.Droid Documentation
 
 .. toctree::
    :caption: Miscellaneous
-   :maxdepth: 2
-   :hidden:
+   :maxdepth: 1
 
    misc/migration
    misc/changelog
